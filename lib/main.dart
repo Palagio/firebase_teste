@@ -7,12 +7,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final fcmToken = await FirebaseMessaging.instance.getToken();
-  FirebaseMessaging.instance.onTokenRefresh.listen((fcmToken) {
-    print(fcmToken);
-  }).onError((err) {
-    print(fcmToken);
-  });
-
+  FirebaseMessaging.instance.onTokenRefresh
+      .listen((fcmToken) {})
+      .onError((err) {});
+  print(fcmToken);
   runApp(const MyApp());
 }
 
