@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "916621391732",
+    "project_id": "fir-teste-122a8",
+    "storage_bucket": "fir-teste-122a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:916621391732:android:791e342bebb84b45d89e21",
+        "android_client_info": {
+          "package_name": "com.palagio.firebaseteste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "916621391732-nupc8nt3lg1tg59mce0jsvfllu20i1o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByloLubajfhZfOH9YZ-m8wsr7xE9QA8yA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "916621391732-nupc8nt3lg1tg59mce0jsvfllu20i1o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
