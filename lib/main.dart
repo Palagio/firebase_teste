@@ -8,9 +8,11 @@ Future<void> main() async {
   await Firebase.initializeApp();
   final fcmToken = await FirebaseMessaging.instance.getToken();
   FirebaseMessaging.instance.onTokenRefresh.listen((fcmToken) {
-    return;
-  }).onError((err) {});
-  FirebaseDatabase database = FirebaseDatabase.instance;
+    print(fcmToken);
+  }).onError((err) {
+    print(fcmToken);
+  });
+
   runApp(const MyApp());
 }
 
@@ -39,13 +41,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  final ref = FirebaseDatabase.instance.ref("users");
+  final _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,19 +54,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            TextFormField(
+              controller: _controller,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        onPressed: () async {
+          await ref.update({
+            "name": _controller.text,
+          });
+        },
+        tooltip: 'update',
         child: const Icon(Icons.add),
       ),
     );
